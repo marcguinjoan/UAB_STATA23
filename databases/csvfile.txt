@@ -1,0 +1,11 @@
+id,ideology,partyvote,satisfaction
+1,2,A,3
+2,5,C,3
+3,7,E,8
+4,4,B,5
+5,5,C,2
+6,3,B,2
+7,1,.,.
+8,9,E,8
+9,6,C,8
+10,5,D,7
