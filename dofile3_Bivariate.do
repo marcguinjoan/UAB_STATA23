@@ -24,8 +24,9 @@
 ***Now we will work with an aggregated-level database: the Vdem dataset, a database on the quality of democracy around the world created by the homonym institute, that also includes myriad political variable from other sources.
 *In this practice we move forward from the descriptive statistics seen in the previous session, to deal with bivariate statistics. These incude signification tests.
 
-cd "databases\"
-use "V-Dem-CPD-Party-V2"
+capture cd "databases\"
+unzipfile "vdem.zip", replace
+use "V-Dem-CY-Core-v11.dta", clear
 
 ***1. Contingency tables
 *We often want to cross-tabulate different categorical variables. 

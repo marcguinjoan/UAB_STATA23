@@ -13,12 +13,14 @@
 ********************************* 4) Practice **********************************
 ********************************************************************************
 
-***DAY 2: 
+***Session 2: 
 
 *1. Use a survey of your choice 
 *We will use the WVS, feel free to use this one or another survey (the ESS, or the CIS or CEO surveys)
 
-use "databases\WVS\WVS_Wave7.dta", clear
+capture cd "databases\"
+unzipfile "WVS\WVS7.zip"
+use "WVS_Wave7.dta", clear
 
 *2. Select data from a country (drop the other countries--if it applies)
 
@@ -33,7 +35,6 @@ keep if B_COUNTRY== 484
 *3. Select up to 10 variables of interest for you (drop the others). Make sure you have categorical and continuous variables
 
 rename Q240 ideology 
-
 rename Q262 age
 rename Q222 vote
 rename Q199 polinterest
@@ -71,8 +72,6 @@ replace democracy=. if democracy <0
 fre education 
 recode education (0 1=1 "primary") (2 3 4 =2 "secondary") (5/8=3 "university") (else=.), gen(edu3)
 
-
-
 *6. Summarize two variables
 sum edu3 ideology
 sum edu3 ideology, d
@@ -85,19 +84,17 @@ histogram age, title (Age) percent ytitle (percentage) bin (20) xlabel (18 20(5)
 
 graph export histogramage.pdf, replace
 
+erase "WVS_Wave7.dta"
 
 **********************************
 
-*****DAY 3
+*****Session 3
 
 *1. Use a database of your choice
 *We will use the V-Dem database. The Chapel Hill Experts Survey is also a good choice for practising. 
 
-cd "databases\"
-copy http://v-dem.net/media/datasets/Country_Year_V-Dem_Core_STATA_v11.1.zip vdem.zip, replace
 unzipfile vdem.zip, replace
-use "Country_Year_V-Dem_Core_STATA_v11.1\V-Dem-CY-Core-v11.1.dta", clear
-
+use "V-Dem-CY-Core-v11.dta", clear
 
 *2. Choose two categorical variables and cross-tabulate them
 
@@ -139,3 +136,4 @@ graph twoway (scatter v2x_frassoc_thick v2x_freexp_altinf) (lfit v2x_frassoc_thi
 label variable barriers2 "barriers to parties"
 graph twoway (scatter v2x_frassoc_thick v2x_freexp_altinf) (lfit v2x_frassoc_thick v2x_freexp_altinf), by(barriers2)
 
+erase "V-Dem-CY-Core-v11.dta"

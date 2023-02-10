@@ -75,7 +75,7 @@ reg satisfaction ideology age i.female i.born i.territorial
 
 *But why do we assume that ideology is a continuos variable and hence its is linearily related to satisfaction with democracy?
 *Another option is to divide ideology between leftist, centrist and rightist indivdiudsls:
-recode ideology (1/3=1 "Left") (4=2 "Centre") (5/7=3 "Right"), gen(ideol3)  /// And now we can replicate the same model with ideology as a  categorical variable:
+recode ideology (1/4=1 "Left") (5 6=2 "Centre") (7/10=3 "Right"), gen(ideol3)  /// And now we can replicate the same model with ideology as a  categorical variable:
 
 reg satisfaction i.ideol3 age i.female i.born i.territorial  // Despite evidence is not statistically significan we can see that the relationship was ideed no linear. 
 

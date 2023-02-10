@@ -36,7 +36,7 @@ tab B_COUNTRY, nol
 *--> Not quite straightforward. We need a better option.
 *Some extensions created by the STATA community to improve the experience. 
 
-ssc install fre // if we know the exact name of the extension
+ssc install fre, replace // if we know the exact name of the extension
 
 fre B_COUNTRY // summary of the countries
 fre B_COUNTRY, all  // all countries and codes
@@ -155,7 +155,6 @@ hist ideol, title("Ideology") xtitle(Left-right scale, height(7)) ytitle(, heigh
 graph save results\ideology, replace // STATA editable: for future edition
 graph export results\ideology.pdf, replace  // Vectorial printing--high quality: for publication
 *PNG, JPG, TIFF, .., formats also available, but PDF is superior in terms of quality. 
-
 
 ************************************ PRACTICE ***********************************
 
